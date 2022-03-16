@@ -17,6 +17,10 @@ public class Product implements Comparable<Product> {
         return this.kal;
     }
 
+    public int GetWeight(){
+        return this.weight;
+    }
+
     @Override
     public int compareTo(Product product) {
         if (this.kal < product.kal){

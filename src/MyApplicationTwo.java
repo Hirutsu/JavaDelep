@@ -32,6 +32,8 @@ public class MyApplicationTwo {
             System.out.println(first[i].Display());
         }
 
+        FindProductBW(first);
+
     }
 
     private Product[] CreateDish(){
@@ -74,6 +76,27 @@ public class MyApplicationTwo {
             }
         }
         return dish;
+    }
+
+    private void FindProductBW(Product[] product){
+        Scanner in = new Scanner(System.in);
+        int kalS, kalE, weightS, weightE;
+        System.out.print("Input kalS: ");
+        kalS = in.nextInt();
+        System.out.print("Input kalE: ");
+        kalE = in.nextInt();
+        System.out.print("Input weightS: ");
+        weightS = in.nextInt();
+        System.out.print("Input weightE: ");
+        weightE = in.nextInt();
+
+        for (int i = 0; i < product.length; i++){
+            if(kalS < product[i].GetKal() && product[i].GetKal() < kalE){
+                if(weightS < product[i].GetWeight() && product[i].GetWeight() < weightE){
+                    System.out.println(product[i].Display());
+                }
+            }
+        }
     }
 
     private int CalculateKal(Product[] product){
