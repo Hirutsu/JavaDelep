@@ -3,9 +3,15 @@ public class Product implements Comparable<Product> {
     private int kal;
     private int weight;
 
-    public Product(String name, int kal,int weight){
+    public Product(String name, int kal,int weight) throws KalException, WeightException {
         this.name = name;
+        if (kal < 0){
+            throw new KalException("calories cannot be lower than 0");
+        }
         this.kal = kal;
+        if (weight < 0){
+            throw new WeightException("weight cannot be lower than 0");
+        }
         this.weight = weight;
     }
 

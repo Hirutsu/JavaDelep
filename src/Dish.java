@@ -55,10 +55,12 @@ public class Dish {
 
     private Product[] CreateDish(){
         Scanner in = new Scanner(System.in);
-
-        int n = 1;
-        Product[] dish = new Product[n];
         try{
+            System.out.print("Input size products in dish:");
+            int n = in.nextInt();
+
+            Product[] dish = new Product[n];
+
             for (int i = 0; i < dish.length; i++){
                 String name;
                 int kal;
@@ -92,11 +94,11 @@ public class Dish {
                         return null;
                 }
             }
+            return dish;
         }
-        catch (Exception e){
+        catch (KalException | WeightException e){
             System.out.println(e.getMessage());
             return null;
         }
-        return dish;
     }
 }
