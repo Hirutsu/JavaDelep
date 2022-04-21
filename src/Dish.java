@@ -1,8 +1,8 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Dish {
-    public Product[] products;
+public class Dish implements java.io.Serializable {
+    public Product[] products ;
 
     public  Dish(){
         this.products = CreateDish();

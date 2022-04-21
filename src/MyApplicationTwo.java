@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,5 +35,34 @@ public class MyApplicationTwo {
         }
 
         dish.FindProductBW();
+        writeObject(dish);
+        readObject();
+    }
+
+    public void writeObject(Dish dish){
+        try {
+            FileOutputStream fos = new FileOutputStream("dish.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(dish);
+            oos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readObject(){
+        try {
+            FileInputStream fis = new FileInputStream("dish.bin");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Dish dish = (Dish) ois.readObject();
+            for (int i = 0; i < dish.products.length; i++){
+                System.out.println(dish.products[i].Display());
+            }
+            ois.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

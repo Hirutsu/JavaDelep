@@ -1,4 +1,4 @@
-public class Product implements Comparable<Product> {
+public class Product implements Comparable<Product>,java.io.Serializable {
     private String name;
     private int kal;
     private int weight;
@@ -14,7 +14,6 @@ public class Product implements Comparable<Product> {
         }
         this.weight = weight;
     }
-
     public String Display(){
        return (this.name + " " + this.kal + " " + this.weight);
     }
